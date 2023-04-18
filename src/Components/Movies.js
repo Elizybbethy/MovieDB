@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useState } from "react";
 import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
@@ -8,42 +8,41 @@ import Avatar from "@mui/material/Avatar";
 import { CardContent, CardHeader, Typography } from "@mui/material";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500/";
+// export default function Movies(){
+// const movie = cartoons.data;
 const Movies = ({ data }) => {
-  console.log("testing", data);
+  // console.log("testing", cartoons);
   const IMG = IMG_URL + data.poster_path;
-  console.log("my image", IMG);
+  const [overview, setOverview]=useState(false);
+  const handleClick =()=> {
+    setOverview(!overview);
+  }
+  // console.log("my image", IMG);
+  // function comedy({ cartoons }) {
   return (
     <>
-      {/* <h3>{data.original_title}</h3> */}
-      {/* <img src={IMG} alt="movie image" /> */}
-      {/* {console.log("my testing url", poster_path)}; */}
-      {/* <p>{data.overview}</p> */}
-      {/* movie info */}
       <Grid
         container
         direction="column"
         justifyContent="center"
         alignItems="flex-start"
-        spacing={8}
+        spacing={0}
       >
-        {/* <Grid item xs={12} md={10}>
+        {/* {cartoons.map((movie) => (
+             <Grid item  key={movie.id} xs={12} md={10}>  */}
+
+        <Grid item xs={12} md={10}>
           <Grid
             container
             direction="row"
-            justifyContent="flex-end"
-            alignItems="flex-start"
+            justifyContent="space-evenly"
+            alignItems="center"
+            spacing={0}
           >
-            <Grid item xs={8} md={6}>
-              <Button a color="primary" variant="contained" >comedy</Button>
-            </Grid> 
-          </Grid>
-        </Grid> */}
-        <Grid item xs={12} md={10}>
-          <Grid container direction="row" justifyContent="space-evenly" alignItems="center" spacing={8}>
-            <Grid item xs={4}>
+            <Grid item xs={2}>
               <Card
                 sx={{
-                  width: "500px",
+                  width: "150px",
                   height: "auto",
                   backgroundColor: "#c7d3eb",
                 }}
@@ -56,17 +55,26 @@ const Movies = ({ data }) => {
                   image={IMG}
                 />
                 <CardContent>
-                  <Typography variant="body2" color="text.secondary">
+                  <button variant="contained" color="primary" onClick={handleClick}>Overview</button>
+                 {overview &&( <Typography variant="body2" color="text.secondary">
                     {data.overview}
                   </Typography>
+                  )}
                 </CardContent>
               </Card>
             </Grid>
           </Grid>
         </Grid>
+        {/* ))}  */}
       </Grid>
     </>
-
+    // console.log("my movie", movie)
+    // <Movies data={movie} key={movie.id}/>)}
+    // {data.map((item) => (
+    //   <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
+    //     {/* render the content of each item here */}
+    //   </Grid>
+    // ))}
     //     <div>
     //       const displayCartoons =() =>{
     //         return cartoons.map((cartoon)=>{
@@ -105,6 +113,7 @@ const Movies = ({ data }) => {
     //       })} */}
     // </div>
   );
+  // }
 };
-
+// }
 export default Movies;
