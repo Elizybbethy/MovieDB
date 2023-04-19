@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import Stack from '@mui/material/Stack';
 
 export default function Headers() {
   return (
@@ -22,14 +23,16 @@ export default function Headers() {
         spancing={2}
         direction="row"
         alignItem="baseline"
-        justifyContent="Center"
+        justifyContent="right"
       >
-        <Grid item xs={12} md={10}>
+        <Grid item xs={10} md={8}>
           <Grid container>
-            <Grid item xs={8}>
+            <Grid item xs={8} >
+            
               <Button variant="contained" color="primary">Popular</Button>
               <Button variant="contained" color="primary">Cartoons</Button>
-              <Button variant="contained" color="primary">Comedy</Button>              
+              <Button variant="contained" color="primary">Comedy</Button>
+              
             </Grid>
             <Grid item xs={4}>              
                   <IconButton
